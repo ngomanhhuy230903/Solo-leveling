@@ -21,17 +21,18 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     //Resource
-    [SerializeField] List<Sprite> playerSprites;
-    [SerializeField] List<Sprite> weaponSprites;
-    [SerializeField] List<int> weaponPrices;
-    [SerializeField] List<int> xpTable;
+    public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    public List<int> weaponPrices;
+    public List<int> xpTable;
     //References
-    [SerializeField] PlayerController player;
+    public PlayerController player;
     //public weapon ...
+    public FloatingTextManager floatingTextManager;
 
     //Logic
-    [SerializeField] int coin;
-    [SerializeField] int exp;
+    public int coin;
+    public int exp;
     //save state 
     /*
      * int preferedSkin
@@ -39,6 +40,11 @@ public class GameManager : MonoBehaviour
      * int exp
      * int weaponlevel
      */
+    //floating text
+    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
+    {
+           floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
+    }
     public void SaveState()
     {
         string s = "";
