@@ -27,12 +27,77 @@ public class GameManager : MonoBehaviour
     public List<int> xpTable;
     //References
     public PlayerController player;
-    //public weapon ...
+    public Weapon weapon;
     public FloatingTextManager floatingTextManager;
-
+    //floating text
+    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
+    {
+        floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
+    }
     //Logic
     public int coin;
     public int exp;
+    //upgrade weapon
+    public bool TryUpgradeWeapon()
+    {
+        //is max level
+        if(weapon.weaponLevel >= weaponPrices.Count)
+        {
+            return false;
+        }
+        if(coin >= weaponPrices[weapon.weaponLevel])
+        {
+            coin -= weaponPrices[weapon.weaponLevel];
+            weapon.UpgradeWeapon();
+            return true;
+        }
+        return false;
+    }
+    private void Update()
+    {
+        GetCurrentLevel();
+    }
+    //Experience system
+    public int GetCurrentLevel()
+    {
+        int r = 0;
+        int add = 0;
+        while(exp >= add)
+        {
+            add += xpTable[r];
+            r++;
+            if(r == xpTable.Count)
+            {
+                return r;
+            }
+        }
+        return r;
+    }
+    public int GetXpToLevel(int level)
+    {
+        int r = 0;
+        int xp = 0;
+        while(r < level)
+        {
+            xp += xpTable[r];
+            r++;
+        }
+        return xp;
+    }
+    public void GrantXp(int xp)
+    {
+        int currLevel = GetCurrentLevel();
+        exp += xp;
+        if(currLevel < GetCurrentLevel())
+        {
+            OnLevelUp();
+        }
+    }
+    public void OnLevelUp()
+    {
+        player.OnLevelUp();
+        //OnHitPointChange();
+    }
     //save state 
     /*
      * int preferedSkin
@@ -40,18 +105,14 @@ public class GameManager : MonoBehaviour
      * int exp
      * int weaponlevel
      */
-    //floating text
-    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
-    {
-           floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
-    }
+
     public void SaveState()
     {
         string s = "";
         s += "0" + "|";
         s += coin.ToString() + "|";
         s += exp.ToString() + "|";
-        s += "0";
+        s += weapon.weaponLevel.ToString();
         PlayerPrefs.SetString("SaveState", s);
     }
     public void LoadState(UnityEngine.SceneManagement.Scene s, LoadSceneMode mode)
@@ -63,8 +124,11 @@ public class GameManager : MonoBehaviour
         string[] data = PlayerPrefs.GetString("SaveState").Split('|');
         //Change Skin
         coin = int.Parse(data[1]);
+        //exp 
         exp = int.Parse(data[2]);
+        if(GetCurrentLevel() != 1)
+        player.SetLevel(GetCurrentLevel());
         //Change Weapon level
-
+        weapon.setWeaponLevel(int.Parse(data[3]));
     }
 }

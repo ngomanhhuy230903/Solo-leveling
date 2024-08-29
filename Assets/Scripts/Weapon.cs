@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,11 @@ using UnityEngine;
 public class Weapon : Collidable
 {
     //Dame struct
-    public int damage = 1;
-    public float pushForce = 2.0f;
+    public int[] damage = {1,2,3,4,5,6,7};
+    public float[] pushForce = { 2.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.0f};
     //upgrade
     public int weaponLevel = 0;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     //swing
     private Animator anim;
     private float cooldown = 0.5f;
@@ -17,7 +18,6 @@ public class Weapon : Collidable
     protected override void Start()
     {
         base.Start();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
     protected override void Update()
@@ -43,8 +43,8 @@ public class Weapon : Collidable
             Damage dmg = new Damage
             {
                 origin = transform.position,
-                damageAmount = damage,
-                pushForce = pushForce
+                damageAmount = damage[weaponLevel],
+                pushForce = pushForce[weaponLevel]
             };
             coll.SendMessage("ReceiveDamage", dmg);
         }
@@ -55,4 +55,15 @@ public class Weapon : Collidable
         anim.SetTrigger("Swing");
     }
 
+    public void UpgradeWeapon()
+    {
+        weaponLevel++;
+        spriteRenderer.sprite = GameManager.Instance.weaponSprites[weaponLevel];
+        //change stats
+    }
+    public void setWeaponLevel(int level)
+    {
+        weaponLevel = level;
+        spriteRenderer.sprite = GameManager.Instance.weaponSprites[weaponLevel];
+    }
 }
