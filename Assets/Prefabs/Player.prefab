@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1937429113517292275}
   - component: {fileID: 3548058694949588140}
   - component: {fileID: 2809329561579530217}
+  - component: {fileID: 736819602309042098}
   m_Layer: 0
   m_Name: Weapon_0
   m_TagString: Untagged
@@ -122,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.1, y: 0.3}
+    oldSize: {x: 0.1010101, y: 0.3030303}
     newSize: {x: 0.1, y: 0.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -157,9 +158,38 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  damage: 1
-  pushForce: 2
+  damage: 01000000020000000300000004000000050000000600000007000000
+  pushForce:
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2
   weaponLevel: 0
+  spriteRenderer: {fileID: 1937429113517292275}
+--- !u!95 &736819602309042098
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158010207582610295}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d86ecd690a831974cbcf56d9fa9b3589, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &478426345395444722
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: 177522513
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1033090035, guid: f02b5115306489543b1f7b9faa6eb58d, type: 3}
+  m_Sprite: {fileID: 462659579, guid: f02b5115306489543b1f7b9faa6eb58d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -259,6 +289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a678206bfa58bc4fb0e5cd5366b7221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoints: 10
+  maxHitPoints: 10
+  pushRecoverySpeed: 0.2
 --- !u!61 &4655449070001996082
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -295,7 +328,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.16161616, y: 0.16161616}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

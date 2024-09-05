@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
         if(GameManager.Instance != null)
         {
             Destroy(gameObject);
+            Destroy(player.gameObject);
+            Destroy(floatingTextManager.gameObject);
             return;
         }
         //delete all state
@@ -130,5 +132,7 @@ public class GameManager : MonoBehaviour
         player.SetLevel(GetCurrentLevel());
         //Change Weapon level
         weapon.setWeaponLevel(int.Parse(data[3]));
+        //spawn point
+        player.transform.position = GameObject.Find("SpawnPoint").transform.position;
     }
 }
