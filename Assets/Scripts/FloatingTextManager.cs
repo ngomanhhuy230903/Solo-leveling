@@ -9,10 +9,6 @@ public class FloatingTextManager : MonoBehaviour
     [SerializeField] GameObject textContainer;
     [SerializeField] GameObject textPrefab;
     private List<FloatingText> floatingTexts = new List<FloatingText>();
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
     private void Update()
     {
           foreach (FloatingText txt in floatingTexts)

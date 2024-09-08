@@ -48,6 +48,9 @@ TagManager:
   - name: Actor
     uniqueID: 177522513
     locked: 0
+  - name: Wall
+    uniqueID: 1525063687
+    locked: 0
   - name: Interactable
     uniqueID: 854952679
     locked: 0

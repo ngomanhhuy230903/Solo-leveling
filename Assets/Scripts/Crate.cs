@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Crate : Fighter
 {
-    protected override void OnCollide(Collider2D coll)
+    protected override void Death()
     {
-        if (coll.tag == "Fighter")
-        {
+
         Destroy(gameObject);
-        }
     }
 }

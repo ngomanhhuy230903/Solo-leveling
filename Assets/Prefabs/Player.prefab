@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1937429113517292275}
   - component: {fileID: 3548058694949588140}
   - component: {fileID: 2809329561579530217}
-  - component: {fileID: 736819602309042098}
+  - component: {fileID: 5545101924524240004}
   m_Layer: 0
   m_Name: Weapon_0
   m_TagString: Untagged
@@ -169,7 +169,7 @@ MonoBehaviour:
   - 2
   weaponLevel: 0
   spriteRenderer: {fileID: 1937429113517292275}
---- !u!95 &736819602309042098
+--- !u!95 &5545101924524240004
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 4655449070001996082}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Fighter
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +219,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.26, y: 0.29, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6700416513438983274}

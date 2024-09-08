@@ -9,7 +9,7 @@ public class HealingFountain : Collectable
     private float lastHeal;
     protected override void OnCollide(Collider2D coll)
     {
-        if(coll.tag != "Player")
+        if(coll.tag != "Fighter")
         {
             return;
         }
