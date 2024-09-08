@@ -18,7 +18,7 @@ public class NPCTextPerson : Collectable
         {
             lastShout = Time.time;
                 GameManager.Instance.ShowText(message, 25, Color.white, transform.position
-                    + new Vector3(0,0.16f,0), Vector3.zero, cooldown);
+                    + new Vector3(0,0.32f,0), Vector3.zero, cooldown);
         }
        
     }

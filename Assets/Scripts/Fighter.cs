@@ -22,14 +22,30 @@ public class Fighter : MonoBehaviour
             lastImmune = Time.time;
             hitPoints -= dmg.damageAmount;
             pushDirection = (transform.position - dmg.origin).normalized * dmg.pushForce;
-            GameManager.Instance.ShowText(dmg.damageAmount.ToString(), 30, Color.red, transform.position,
-                Vector3.up * 40, 1.0f);
+
+            ShowDamageText(dmg.damageAmount, dmg.origin);
+
             if (hitPoints <= 0)
             {
                 hitPoints = 0;
                 Death();
             }
         }
+    }
+    private void ShowDamageText(int damage, Vector3 origin)
+    {
+        Vector3 textPosition = transform.position + new Vector3(1, GetComponent<Collider2D>().bounds.extents.y, 0) ;
+        Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0.5f, 1f), 0);
+        float displayTime = Mathf.Clamp(damage / 10f, 0.5f, 2f);
+
+        GameManager.Instance.ShowText(
+            damage.ToString(),
+            30,
+            Color.red,
+            textPosition,
+            randomOffset,
+            displayTime
+        );
     }
     protected virtual void Death()
     {

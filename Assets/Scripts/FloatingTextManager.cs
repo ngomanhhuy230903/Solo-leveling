@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -22,6 +22,7 @@ public class FloatingTextManager : MonoBehaviour
         floatingText.txt.text  = msg;
         floatingText.txt.fontSize = fontSize;
         floatingText.txt.color = color;
+        floatingText.worldPosition = position;
         floatingText.go.transform.position = Camera.main.WorldToScreenPoint(position);
         floatingText.motion = motion;
         floatingText.duration = duration;

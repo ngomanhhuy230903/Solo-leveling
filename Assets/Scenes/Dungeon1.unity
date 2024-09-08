@@ -49939,6 +49939,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2662819953392951233, guid: 08c4c9821598e214f80ac84554de2c4f, type: 3}
+      propertyPath: chaseLength
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662819953392951233, guid: 08c4c9821598e214f80ac84554de2c4f, type: 3}
+      propertyPath: triggerLength
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4079253838857326158, guid: 08c4c9821598e214f80ac84554de2c4f, type: 3}
       propertyPath: m_LocalScale.x
       value: 2

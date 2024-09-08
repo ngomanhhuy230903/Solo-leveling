@@ -68,7 +68,7 @@ public class PlayerController : Mover
         if(hitPoints > maxHitPoints)
         hitPoints = maxHitPoints;
         GameManager.Instance.ShowText("+" + healingAmount.ToString(), 25, Color.green, 
-            transform.position, Vector3.up * 30, 1.0f);
+            transform.position + new Vector3(1,0,0), Vector3.up, 1.0f);
         GameManager.Instance.OnHitPointChange();
     }
     public void Respawn() {       
@@ -77,4 +77,5 @@ public class PlayerController : Mover
         lastImmune = Time.time;
         pushDirection = Vector3.zero;
     }
+
 }

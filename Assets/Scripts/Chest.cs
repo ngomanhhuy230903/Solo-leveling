@@ -15,7 +15,7 @@ public class Chest : Collectable
             //increase coins
             GameManager.Instance.coin += coinsAmount;
             GameManager.Instance.ShowText("+" + coinsAmount + " coins", 30, Color.yellow, 
-                transform.position, Vector3.up * 50, 1.0f);
+                transform.position, Vector3.up, 1.0f);
         }
     }
 }
